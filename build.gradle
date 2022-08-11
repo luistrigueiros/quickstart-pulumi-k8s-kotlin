@@ -1,4 +1,5 @@
 plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.7.10"
     id 'application'
 }
 
@@ -7,7 +8,7 @@ version '0.0.1-SNAPSHOT'
 description = "quickstart-java"
 
 repositories {
-    mavenLocal()
+    mavenCentral()
     maven { // The google mirror is less flaky than mavenCentral()
         url("https://maven-central.storage-download.googleapis.com/maven2/")
     }
@@ -17,6 +18,8 @@ repositories {
 dependencies {
     implementation("com.pulumi:pulumi:(,1.0]")
     implementation("com.pulumi:kubernetes:3.19.1")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 }
 
 application {
@@ -24,3 +27,13 @@ application {
             ? project.getProperty("mainClass")
             : "${group}.Main"
 }
+//compileKotlin {
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
+//}
+//compileTestKotlin {
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
+//}

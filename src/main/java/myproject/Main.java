@@ -1,31 +1,18 @@
 package myproject;
 
+import static myproject.SupportKt.getContainers;
+
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.kubernetes.apps_v1.Deployment;
 import com.pulumi.kubernetes.apps_v1.DeploymentArgs;
 import com.pulumi.kubernetes.apps_v1.inputs.DeploymentSpecArgs;
-import com.pulumi.kubernetes.core_v1.inputs.ContainerArgs;
-import com.pulumi.kubernetes.core_v1.inputs.ContainerPortArgs;
-import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs.Builder;
 import com.pulumi.kubernetes.core_v1.inputs.PodTemplateSpecArgs;
 import com.pulumi.kubernetes.meta_v1.inputs.LabelSelectorArgs;
 import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-
 import java.util.Map;
 
 public class Main {
-    private static Builder getContainers() {
-        return PodSpecArgs.builder()
-            .containers(ContainerArgs.builder()
-                .name("nginx")
-                .image("nginx")
-                .ports(ContainerPortArgs.builder()
-                    .containerPort(80)
-                    .build())
-                .build());
-    }
 
     private static Deployment getDeployment(Map labels) {
         Deployment deployment = new Deployment("nginx", DeploymentArgs.builder()
