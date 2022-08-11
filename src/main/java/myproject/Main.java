@@ -15,7 +15,7 @@ import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
 
 import java.util.Map;
 
-public class App {
+public class Main {
     private static Builder getContainers() {
         return PodSpecArgs.builder()
             .containers(ContainerArgs.builder()
