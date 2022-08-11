@@ -25,5 +25,5 @@ dependencies {
 application {
     mainClass = project.hasProperty("mainClass")
             ? project.getProperty("mainClass")
-            : "${group}.Main"
+            : "${group}.MainKt"
 }
