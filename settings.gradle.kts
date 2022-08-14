@@ -6,6 +6,3 @@ pluginManagement {
         mavenLocal()
     }
 }
-
-//include 'infra'
-//include 'app'
